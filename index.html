@@ -141,6 +141,13 @@
     margin-bottom: 48px;
   }
 
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
   .videos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
@@ -224,6 +231,223 @@
   .studio-card:hover {
     border-color: rgba(201,139,150,0.4);
     box-shadow: 0 0 24px rgba(201,139,150,0.08);
+  }
+
+  .mueller-card::before {
+    background: linear-gradient(90deg, #2a6496, #f5b731, #2a6496);
+  }
+  .mueller-card:hover {
+    border-color: rgba(42,100,150,0.45);
+    box-shadow: 0 0 24px rgba(42,100,150,0.1);
+  }
+  .btn-mueller {
+    display: block; text-align: center; text-decoration: none;
+    background: #2a6496; color: #fff;
+    border: 1px solid rgba(42,100,150,0.5);
+    border-radius: 6px; padding: 13px 20px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-mueller:hover { background: #1a5080; }
+  .dot-steel { background: #4a90c4; }
+  .c-steel { color: #4a90c4; }
+  .c-gold2 { color: #f5b731; }
+
+  /* CHINESE LUXURY */
+  --jade:    #1a6b4a;
+  --crimson: #8B0000;
+  --gold2:   #D4AF37;
+
+  .mirofish-section {
+    margin-bottom: 48px;
+  }
+
+  .mirofish-heading {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 0 0 12px rgba(212,175,55,0.4);
+  }
+
+  .mirofish-heading::before { content: '龍'; font-size: 16px; opacity: 0.7; }
+  .mirofish-heading::after  {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(212,175,55,0.5), transparent);
+  }
+
+  .mirofish-card {
+    background: linear-gradient(145deg, #0d0a06, #120e08, #0a0d0a);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .mirofish-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8B0000, #D4AF37, #8B0000, #D4AF37, #8B0000);
+  }
+
+  .mirofish-card::after {
+    content: '龍';
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    font-size: 72px;
+    opacity: 0.04;
+    color: #D4AF37;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .mirofish-card:hover {
+    border-color: rgba(212,175,55,0.55);
+    box-shadow: 0 0 32px rgba(212,175,55,0.1), 0 0 8px rgba(139,0,0,0.15);
+  }
+
+  .mirofish-name {
+    font-size: clamp(14px, 2vw, 17px);
+    font-weight: 700;
+    color: #D4AF37;
+    flex: 1;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(212,175,55,0.4);
+  }
+
+  .mirofish-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.35);
+    color: #D4AF37;
+    white-space: nowrap;
+  }
+
+  .mirofish-desc {
+    font-size: 12px;
+    color: #9a8a6a;
+    line-height: 1.7;
+  }
+
+  .mirofish-stat {
+    background: rgba(212,175,55,0.05);
+    border: 1px solid rgba(212,175,55,0.15);
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mirofish-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  .dot-gold   { background: #D4AF37; box-shadow: 0 0 6px rgba(212,175,55,0.6); }
+  .dot-crimson { background: #c0392b; box-shadow: 0 0 6px rgba(192,57,43,0.6); }
+  .dot-jade   { background: #27ae60; box-shadow: 0 0 6px rgba(39,174,96,0.6); }
+  .dot-pearl  { background: #bdc3c7; box-shadow: 0 0 6px rgba(189,195,199,0.4); }
+
+  .mirofish-stat-label { font-size:9px; color:#6a5a3a; letter-spacing:1px; text-transform:uppercase; }
+  .mirofish-stat-value { font-size:11px; font-weight:600; }
+  .c-gold    { color: #D4AF37; }
+  .c-crimson { color: #e74c3c; }
+  .c-jade    { color: #2ecc71; }
+  .c-pearl   { color: #bdc3c7; }
+
+  .mirofish-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent);
+  }
+
+  .mirofish-setup {
+    background: rgba(139,0,0,0.08);
+    border: 1px solid rgba(139,0,0,0.25);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size:11px;
+    color: #9a6060;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  .mirofish-setup strong { color: #D4AF37; }
+
+  .btn-mirofish {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 13px 24px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(139,0,0,0.25), rgba(212,175,55,0.15));
+    border: 1px solid rgba(212,175,55,0.4);
+    color: #D4AF37;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .btn-mirofish:hover {
+    background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(212,175,55,0.25));
+    box-shadow: 0 0 20px rgba(212,175,55,0.2);
+    transform: translateY(-1px);
+  }
+
+  .game-card::before {
+    background: linear-gradient(90deg, var(--purple), var(--orange), var(--red), var(--purple));
+  }
+
+  .game-card:hover {
+    border-color: rgba(155,109,255,0.4);
+    box-shadow: 0 0 24px rgba(155,109,255,0.1);
+  }
+
+  .btn-arcade {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 13px 24px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(155,109,255,0.18), rgba(255,176,32,0.12));
+    border: 1px solid rgba(155,109,255,0.45);
+    color: var(--purple);
+    transition: all 0.2s;
+    margin-top: auto;
+  }
+
+  .btn-arcade:hover {
+    background: linear-gradient(135deg, rgba(155,109,255,0.3), rgba(255,176,32,0.2));
+    box-shadow: 0 0 18px rgba(155,109,255,0.25);
+    transform: translateY(-1px);
   }
 
   /* CARD HEADER */
@@ -460,7 +684,8 @@
     .wrapper { padding: 0 14px 48px; }
     .header { padding: 32px 0 24px; margin-bottom: 28px; }
     .projects-grid,
-    .studio-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    .studio-grid,
+    .games-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
     .videos-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 36px; }
     .project-card { padding: 18px 16px; }
     .card-icon { font-size: 22px; }
@@ -481,141 +706,153 @@
     <p class="header-sub">All systems running</p>
   </header>
 
-  <!-- ACTIVE PROJECTS -->
+  <!-- STUDIO 313 (moved to top) -->
   <section>
-    <h2 class="section-heading">Active Projects</h2>
-    <div class="projects-grid">
+    <h2 class="section-heading">Studio 313 Redesign</h2>
+    <div class="studio-grid">
 
-      <!-- Card 1: AI Skills Learning -->
-      <div class="project-card">
+      <div class="project-card studio-card">
         <div class="card-header">
-          <span class="card-icon">🧠</span>
-          <span class="card-name">AI Skills Learning</span>
-          <span class="status-badge">● ACTIVE</span>
+          <span class="card-icon">💇‍♀️</span>
+          <span class="card-name">Studio 313 — Live Site</span>
         </div>
-        <p class="card-desc">326 Claude skills across CLI + web — discovery, install, and ranking</p>
+        <p class="card-desc">Full hair salon redesign — rose gold theme, mobile-ready, gallery carousel, booking links, stylist profiles</p>
         <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-dot dot-blue"></div>
-            <div class="stat-content">
-              <div class="stat-label">CLI Skills</div>
-              <div class="stat-value c-blue">326</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-purple"></div>
-            <div class="stat-content">
-              <div class="stat-label">Web Skills</div>
-              <div class="stat-value c-purple">50</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-orange"></div>
-            <div class="stat-content">
-              <div class="stat-label">Repos Sourced</div>
-              <div class="stat-value c-orange">22</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">S-Tier Skills</div>
-              <div class="stat-value c-green">12</div>
-            </div>
-          </div>
+          <div class="stat-item"><div class="stat-dot dot-rose"></div><div class="stat-content"><div class="stat-label">Sections</div><div class="stat-value c-rose">7</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Links</div><div class="stat-value c-green">All Live</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Mobile</div><div class="stat-value c-green">✓</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-rose"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-rose">Rose Gold</div></div></div>
         </div>
-        <div class="last-activity">LAST ACTIVITY: <span>Today, 6:42 PM</span></div>
-        <a href="https://shaiguyllc.github.io/ai-skills/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+        <a href="https://shaiguyllc.github.io/studio313-redesign/" target="_blank" class="btn-rosegold">VIEW REDESIGN →</a>
+        <a href="https://github.com/shaiguyllc/studio313-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
-      <!-- Card 2: BTC Predictor -->
-      <div class="project-card">
+      <div class="project-card studio-card">
         <div class="card-header">
-          <span class="card-icon">📈</span>
-          <span class="card-name">BTC Predictor</span>
-          <span class="status-badge">● ACTIVE</span>
+          <span class="card-icon">🔀</span>
+          <span class="card-name">Before &amp; After — Presentation</span>
         </div>
-        <p class="card-desc">5-minute BTC direction prediction using Kraken + technicals + sentiment</p>
+        <p class="card-desc">9-slide comparison showing every upgrade from the original Studio 313 site to the redesign</p>
         <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">Win Rate</div>
-              <div class="stat-value c-green">60%</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-blue"></div>
-            <div class="stat-content">
-              <div class="stat-label">Balance</div>
-              <div class="stat-value c-blue">$110.05</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">Last Trade</div>
-              <div class="stat-value c-green">WIN +$9.09</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-orange"></div>
-            <div class="stat-content">
-              <div class="stat-label">Trades Run</div>
-              <div class="stat-value c-orange">10</div>
-            </div>
-          </div>
+          <div class="stat-item"><div class="stat-dot dot-purple"></div><div class="stat-content"><div class="stat-label">Slides</div><div class="stat-value c-purple">9</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Upgrades</div><div class="stat-value c-blue">9</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Swipe</div><div class="stat-value c-green">✓ Mobile</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-rose"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-rose">Matched</div></div></div>
         </div>
-        <div class="last-activity">LAST ACTIVITY: <span>Today, 8:25 PM</span></div>
-        <a href="https://shaiguyllc.github.io/btc-predictor/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
-        <a href="https://github.com/shaiguyllc/btc-predictor" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://shaiguyllc.github.io/studio313-comparison/" target="_blank" class="btn-rosegold">VIEW COMPARISON →</a>
+        <a href="https://github.com/shaiguyllc/studio313-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
-      <!-- Card 3: POD Automation -->
-      <div class="project-card">
+    </div>
+  </section>
+
+  <!-- MUELLER MECHANICAL -->
+  <section>
+    <h2 class="section-heading">Mueller Mechanical Redesign</h2>
+    <div class="studio-grid">
+
+      <div class="project-card mueller-card">
         <div class="card-header">
-          <span class="card-icon">🛍️</span>
-          <span class="card-name">POD Automation</span>
-          <span class="status-badge">● ACTIVE</span>
+          <span class="card-icon">🔧</span>
+          <span class="card-name">Mueller Mechanical — Live Site</span>
         </div>
-        <p class="card-desc">Drop a design → auto bg remove, upscale, AI listing, publish to Etsy via Printify</p>
+        <p class="card-desc">Full HVAC contractor redesign — trust bar, 9 services, smart 6-step quote tool, real job gallery, mobile-first</p>
         <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">Completed</div>
-              <div class="stat-value c-green">2</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-blue"></div>
-            <div class="stat-content">
-              <div class="stat-label">In Pipeline</div>
-              <div class="stat-value c-blue">0</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-red"></div>
-            <div class="stat-content">
-              <div class="stat-label">Failed</div>
-              <div class="stat-value c-red">0</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-orange"></div>
-            <div class="stat-content">
-              <div class="stat-label">Next Up</div>
-              <div class="stat-value c-orange">Amazon Merch</div>
-            </div>
-          </div>
+          <div class="stat-item"><div class="stat-dot dot-steel"></div><div class="stat-content"><div class="stat-label">Sections</div><div class="stat-value c-steel">10</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Photos</div><div class="stat-value c-green">11</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Mobile</div><div class="stat-value c-green">✓</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#f5b731;"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-gold2">Steel + Gold</div></div></div>
         </div>
-        <div class="last-activity">LAST ACTIVITY: <span>Today, 3:10 AM</span></div>
-        <a href="https://shaiguyllc.github.io/pod-automation/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
-        <a href="https://github.com/shaiguyllc/pod-automation" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://shaiguyllc.github.io/mueller-redesign/" target="_blank" class="btn-mueller">VIEW REDESIGN →</a>
+        <a href="https://github.com/shaiguyllc/mueller-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
-      <!-- Card 4: Claude Code Quest -->
-      <div class="project-card">
+      <div class="project-card mueller-card">
+        <div class="card-header">
+          <span class="card-icon">⚡</span>
+          <span class="card-name">Feature Showcase — Presentation</span>
+        </div>
+        <p class="card-desc">9-slide walkthrough of every feature built — hero, trust bar, quote tool, gallery, mobile, reviews, and more</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-steel"></div><div class="stat-content"><div class="stat-label">Slides</div><div class="stat-value c-steel">9</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Features</div><div class="stat-value c-blue">12+</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Swipe</div><div class="stat-value c-green">✓ Mobile</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#f5b731;"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-gold2">Philly Bold</div></div></div>
+        </div>
+        <a href="https://shaiguyllc.github.io/mueller-comparison/" target="_blank" class="btn-mueller">VIEW SHOWCASE →</a>
+        <a href="https://github.com/shaiguyllc/mueller-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MIROFISH -->
+  <section class="mirofish-section">
+    <h2 class="mirofish-heading">MiroFish — 群体智能引擎</h2>
+
+    <div class="mirofish-card">
+      <div class="card-header">
+        <span class="card-icon">🐉</span>
+        <span class="mirofish-name">MiroFish Simulation Engine</span>
+        <span class="mirofish-badge">⚙ NEEDS API KEYS</span>
+      </div>
+
+      <p class="mirofish-desc">Multi-agent swarm intelligence — feed it data, scenarios, or stories and simulate thousands of futures before they happen. Policy testing · market prediction · creative sandboxing.</p>
+
+      <div class="stats-row">
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-gold"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">Engine</div>
+            <div class="mirofish-stat-value c-gold">Multi-Agent</div>
+          </div>
+        </div>
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-crimson"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">LLM Backend</div>
+            <div class="mirofish-stat-value c-crimson">OpenAI / Qwen</div>
+          </div>
+        </div>
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-jade"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">Status</div>
+            <div class="mirofish-stat-value c-jade">Installed ✓</div>
+          </div>
+        </div>
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-pearl"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">Location</div>
+            <div class="mirofish-stat-value c-pearl">localhost:3002</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mirofish-divider"></div>
+
+      <div class="mirofish-setup">
+        <strong>To activate:</strong> add your keys to <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">MiroFish/.env</code><br>
+        → <strong>LLM_API_KEY</strong> — OpenAI key or Alibaba Qwen<br>
+        → <strong>ZEP_API_KEY</strong> — free at <strong>app.getzep.com</strong><br>
+        Then run: <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">npm run dev</code> inside the MiroFish folder
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="http://localhost:3002" target="_blank" class="btn-mirofish" style="flex:1;">OPEN APP →</a>
+        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="btn-action" style="flex:0 0 auto;border:1px solid rgba(212,175,55,0.2);color:#6a5a3a;border-radius:6px;padding:13px 16px;font-size:10px;text-decoration:none;display:flex;align-items:center;">⌥ GITHUB</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section>
+    <h2 class="section-heading">Games</h2>
+    <div class="games-grid">
+
+      <!-- Game 1: Claude Code Quest -->
+      <div class="project-card game-card">
         <div class="card-header">
           <span class="card-icon">🎮</span>
           <span class="card-name">Claude Code Quest</span>
@@ -653,118 +890,111 @@
           </div>
         </div>
         <div class="last-activity">LAST ACTIVITY: <span>Today</span></div>
-        <a href="https://shaiguyllc.github.io/claude-code-quest/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">PLAY GAME →</a>
+        <a href="https://shaiguyllc.github.io/claude-code-quest/" target="_blank" class="btn-arcade" style="margin-top:16px;">PLAY GAME →</a>
         <a href="https://github.com/shaiguyllc/claude-code-quest" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
-    </div>
-  </section>
-
-  <!-- STUDIO 313 -->
-  <section>
-    <h2 class="section-heading">Studio 313 Redesign</h2>
-    <div class="studio-grid">
-
-      <!-- Card A: Live Site -->
-      <div class="project-card studio-card">
+      <!-- Game 2: Neon Invaders -->
+      <div class="project-card game-card">
         <div class="card-header">
-          <span class="card-icon">💇‍♀️</span>
-          <span class="card-name">Studio 313 — Live Site</span>
+          <span class="card-icon">👾</span>
+          <span class="card-name">Neon Invaders</span>
+          <span class="status-badge" style="background:rgba(255,176,32,.12);border-color:rgba(255,176,32,.3);color:var(--orange);">● NEW</span>
         </div>
-        <p class="card-desc">Full hair salon redesign — rose gold theme, mobile-ready, gallery carousel, booking links, stylist profiles</p>
-        <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-dot dot-rose"></div>
-            <div class="stat-content">
-              <div class="stat-label">Sections</div>
-              <div class="stat-value c-rose">7</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">Links</div>
-              <div class="stat-value c-green">All Live</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">Mobile</div>
-              <div class="stat-value c-green">✓</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-rose"></div>
-            <div class="stat-content">
-              <div class="stat-label">Theme</div>
-              <div class="stat-value c-rose">Rose Gold</div>
-            </div>
-          </div>
-        </div>
-        <a href="https://shaiguyllc.github.io/studio313-redesign/" target="_blank" class="btn-rosegold">VIEW REDESIGN →</a>
-        <a href="https://github.com/shaiguyllc/studio313-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
-      </div>
-
-      <!-- Card B: Before & After -->
-      <div class="project-card studio-card">
-        <div class="card-header">
-          <span class="card-icon">🔀</span>
-          <span class="card-name">Before &amp; After — Presentation</span>
-        </div>
-        <p class="card-desc">9-slide comparison showing every upgrade from the original Studio 313 site to the redesign</p>
+        <p class="card-desc">Neon arcade shooter — blast waves of glowing enemies, defend your shields, and take down the boss</p>
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-dot dot-purple"></div>
             <div class="stat-content">
-              <div class="stat-label">Slides</div>
-              <div class="stat-value c-purple">9</div>
+              <div class="stat-label">Style</div>
+              <div class="stat-value c-purple">Arcade</div>
             </div>
           </div>
           <div class="stat-item">
-            <div class="stat-dot dot-blue"></div>
+            <div class="stat-dot dot-orange"></div>
             <div class="stat-content">
-              <div class="stat-label">Upgrades</div>
-              <div class="stat-value c-blue">9</div>
+              <div class="stat-label">Enemies</div>
+              <div class="stat-value c-orange">3 Types</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-dot dot-red"></div>
+            <div class="stat-content">
+              <div class="stat-label">Boss</div>
+              <div class="stat-value c-red">Each Wave</div>
             </div>
           </div>
           <div class="stat-item">
             <div class="stat-dot dot-green"></div>
             <div class="stat-content">
-              <div class="stat-label">Swipe</div>
-              <div class="stat-value c-green">✓ Mobile</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-rose"></div>
-            <div class="stat-content">
-              <div class="stat-label">Theme</div>
-              <div class="stat-value c-rose">Matched</div>
+              <div class="stat-label">Play On</div>
+              <div class="stat-value c-green">Phone+Desktop</div>
             </div>
           </div>
         </div>
-        <a href="https://shaiguyllc.github.io/studio313-comparison/" target="_blank" class="btn-rosegold">VIEW COMPARISON →</a>
-        <a href="https://github.com/shaiguyllc/studio313-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <div class="last-activity">LAST ACTIVITY: <span>Today</span></div>
+        <a href="neon-invaders.html" class="btn-arcade" style="margin-top:16px;">PLAY GAME →</a>
       </div>
 
     </div>
   </section>
 
-  <!-- PROGRESS VIDEOS -->
+  <!-- ACTIVE PROJECTS -->
   <section>
-    <h2 class="section-heading">Progress Videos</h2>
-    <div class="videos-grid">
+    <h2 class="section-heading">Active Projects</h2>
+    <div class="projects-grid">
 
-      <div class="video-card">
-        <div class="video-label">
-          <span class="video-badge">NEW</span>
-          Week in Review — Studio 313 Redesign + Before &amp; After
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">🧠</span>
+          <span class="card-name">AI Skills Learning</span>
+          <span class="status-badge">● ACTIVE</span>
         </div>
-        <video controls playsinline preload="metadata"
-               style="width:100%;border-radius:10px;display:block;background:#0a0a0f;">
-          <source src="https://shaiguyllc.github.io/projects-dashboard/week-in-review-v3.mp4" type="video/mp4">
-        </video>
-        <div class="video-meta">Mar 25, 2026 &nbsp;·&nbsp; Studio 313 Redesign &amp; Comparison Site</div>
+        <p class="card-desc">326 Claude skills across CLI + web — discovery, install, and ranking</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">CLI Skills</div><div class="stat-value c-blue">326</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-purple"></div><div class="stat-content"><div class="stat-label">Web Skills</div><div class="stat-value c-purple">50</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Repos Sourced</div><div class="stat-value c-orange">22</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">S-Tier Skills</div><div class="stat-value c-green">12</div></div></div>
+        </div>
+        <div class="last-activity">LAST ACTIVITY: <span>Today, 6:42 PM</span></div>
+        <a href="https://shaiguyllc.github.io/ai-skills/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">📈</span>
+          <span class="card-name">BTC Predictor</span>
+          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
+        </div>
+        <p class="card-desc">5-minute BTC direction prediction using Kraken + technicals + sentiment</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Win Rate</div><div class="stat-value c-green">60%</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Balance</div><div class="stat-value c-blue">$110.05</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Last Trade</div><div class="stat-value c-green">WIN +$9.09</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Trades Run</div><div class="stat-value c-orange">10</div></div></div>
+        </div>
+        <div class="last-activity">LAST ACTIVITY: <span>Today, 8:25 PM</span></div>
+        <a href="https://shaiguyllc.github.io/btc-predictor/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+        <a href="https://github.com/shaiguyllc/btc-predictor" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">🛍️</span>
+          <span class="card-name">POD Automation</span>
+          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
+        </div>
+        <p class="card-desc">Drop a design → auto bg remove, upscale, AI listing, publish to Etsy via Printify</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Completed</div><div class="stat-value c-green">2</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">In Pipeline</div><div class="stat-value c-blue">0</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-red"></div><div class="stat-content"><div class="stat-label">Failed</div><div class="stat-value c-red">0</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Next Up</div><div class="stat-value c-orange">Amazon Merch</div></div></div>
+        </div>
+        <div class="last-activity">LAST ACTIVITY: <span>Today, 3:10 AM</span></div>
+        <a href="https://shaiguyllc.github.io/pod-automation/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+        <a href="https://github.com/shaiguyllc/pod-automation" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
     </div>
