@@ -786,67 +786,88 @@
     </div>
   </section>
 
-  <!-- MIROFISH -->
-  <section class="mirofish-section">
-    <h2 class="mirofish-heading">MiroFish — 群体智能引擎</h2>
+  <!-- ACTIVE PROJECTS -->
+  <section>
+    <h2 class="section-heading">Active Projects</h2>
+    <div class="projects-grid">
 
-    <div class="mirofish-card">
-      <div class="card-header">
-        <span class="card-icon">🐉</span>
-        <span class="mirofish-name">MiroFish Simulation Engine</span>
-        <span class="mirofish-badge">⚙ NEEDS API KEYS</span>
+      <div class="project-card" style="--card-accent:#6366f1;">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4,#6366f1);border-radius:12px 12px 0 0;"></div>
+        <div class="card-header">
+          <span class="card-icon">📊</span>
+          <span class="card-name">SwingScan — S&amp;P 500 Screener</span>
+          <span class="status-badge" style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.4);color:#818cf8;">● ACTIVE</span>
+        </div>
+        <p class="card-desc">Daily swing trade scanner — ranks top 20 S&amp;P 500 setups by RSI, EMA, MACD &amp; volume with interactive charts and watchlist</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot" style="background:#6366f1;box-shadow:0 0 6px rgba(99,102,241,0.6);"></div><div class="stat-content"><div class="stat-label">Stocks Ranked</div><div class="stat-value" style="color:#818cf8;">20</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#06b6d4;box-shadow:0 0 6px rgba(6,182,212,0.6);"></div><div class="stat-content"><div class="stat-label">Indicators</div><div class="stat-value" style="color:#06b6d4;">RSI·EMA·MACD·Vol</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Universe</div><div class="stat-value c-green">S&amp;P 500</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Server</div><div class="stat-value c-orange">localhost:4600</div></div></div>
+        </div>
+        <div class="last-activity">LAST SCREENED: <span>Mar 30, 2026</span></div>
+        <a href="http://localhost:4600/design-preview.html" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;border-color:rgba(99,102,241,.5);color:#818cf8;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(6,182,212,.15));">OPEN DASHBOARD →</a>
       </div>
 
-      <p class="mirofish-desc">Multi-agent swarm intelligence — feed it data, scenarios, or stories and simulate thousands of futures before they happen. Policy testing · market prediction · creative sandboxing.</p>
-
-      <div class="stats-row">
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-gold"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">Engine</div>
-            <div class="mirofish-stat-value c-gold">Multi-Agent</div>
-          </div>
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">🧠</span>
+          <span class="card-name">AI Skills Learning</span>
+          <span class="status-badge">● ACTIVE</span>
         </div>
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-crimson"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">LLM Backend</div>
-            <div class="mirofish-stat-value c-crimson">OpenAI / Qwen</div>
-          </div>
+        <p class="card-desc">326 Claude skills across CLI + web — discovery, install, and ranking</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">CLI Skills</div><div class="stat-value c-blue">326</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-purple"></div><div class="stat-content"><div class="stat-label">Web Skills</div><div class="stat-value c-purple">50</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Repos Sourced</div><div class="stat-value c-orange">22</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">S-Tier Skills</div><div class="stat-value c-green">12</div></div></div>
         </div>
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-jade"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">Status</div>
-            <div class="mirofish-stat-value c-jade">Installed ✓</div>
-          </div>
-        </div>
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-pearl"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">Location</div>
-            <div class="mirofish-stat-value c-pearl">localhost:3002</div>
-          </div>
-        </div>
+        <div class="last-activity">LAST ACTIVITY: <span>Today, 6:42 PM</span></div>
+        <a href="https://shaiguyllc.github.io/ai-skills/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
       </div>
 
-      <div class="mirofish-divider"></div>
-
-      <div class="mirofish-setup">
-        <strong>To activate:</strong> add your keys to <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">MiroFish/.env</code><br>
-        → <strong>LLM_API_KEY</strong> — OpenAI key or Alibaba Qwen<br>
-        → <strong>ZEP_API_KEY</strong> — free at <strong>app.getzep.com</strong><br>
-        Then run: <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">npm run dev</code> inside the MiroFish folder
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">📈</span>
+          <span class="card-name">BTC Predictor</span>
+          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
+        </div>
+        <p class="card-desc">5-minute BTC direction prediction using Kraken + technicals + sentiment</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Win Rate</div><div class="stat-value c-green">60%</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Balance</div><div class="stat-value c-blue">$110.05</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Last Trade</div><div class="stat-value c-green">WIN +$9.09</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Trades Run</div><div class="stat-value c-orange">10</div></div></div>
+        </div>
+        <div class="last-activity">LAST ACTIVITY: <span>Today, 8:25 PM</span></div>
+        <a href="https://shaiguyllc.github.io/btc-predictor/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+        <a href="https://github.com/shaiguyllc/btc-predictor" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="http://localhost:3002" target="_blank" class="btn-mirofish" style="flex:1;">OPEN APP →</a>
-        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="btn-action" style="flex:0 0 auto;border:1px solid rgba(212,175,55,0.2);color:#6a5a3a;border-radius:6px;padding:13px 16px;font-size:10px;text-decoration:none;display:flex;align-items:center;">⌥ GITHUB</a>
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">🛍️</span>
+          <span class="card-name">POD Automation</span>
+          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
+        </div>
+        <p class="card-desc">Drop a design → auto bg remove, upscale, AI listing, publish to Etsy via Printify</p>
+        <div class="stats-row">
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Completed</div><div class="stat-value c-green">2</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">In Pipeline</div><div class="stat-value c-blue">0</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-red"></div><div class="stat-content"><div class="stat-label">Failed</div><div class="stat-value c-red">0</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Next Up</div><div class="stat-value c-orange">Amazon Merch</div></div></div>
+        </div>
+        <div class="last-activity">LAST ACTIVITY: <span>Today, 3:10 AM</span></div>
+        <a href="https://shaiguyllc.github.io/pod-automation/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+        <a href="https://github.com/shaiguyllc/pod-automation" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
+
     </div>
   </section>
 
-  <!-- GAMES -->
+
+
+    <!-- GAMES -->
   <section>
     <h2 class="section-heading">Games</h2>
     <div class="games-grid">
@@ -939,87 +960,67 @@
     </div>
   </section>
 
-  <!-- ACTIVE PROJECTS -->
-  <section>
-    <h2 class="section-heading">Active Projects</h2>
-    <div class="projects-grid">
+    <!-- MIROFISH -->
+  <section class="mirofish-section">
+    <h2 class="mirofish-heading">MiroFish — 群体智能引擎</h2>
 
-      <div class="project-card" style="--card-accent:#6366f1;">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4,#6366f1);border-radius:12px 12px 0 0;"></div>
-        <div class="card-header">
-          <span class="card-icon">📊</span>
-          <span class="card-name">SwingScan — S&amp;P 500 Screener</span>
-          <span class="status-badge" style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.4);color:#818cf8;">● ACTIVE</span>
-        </div>
-        <p class="card-desc">Daily swing trade scanner — ranks top 20 S&amp;P 500 setups by RSI, EMA, MACD &amp; volume with interactive charts and watchlist</p>
-        <div class="stats-row">
-          <div class="stat-item"><div class="stat-dot" style="background:#6366f1;box-shadow:0 0 6px rgba(99,102,241,0.6);"></div><div class="stat-content"><div class="stat-label">Stocks Ranked</div><div class="stat-value" style="color:#818cf8;">20</div></div></div>
-          <div class="stat-item"><div class="stat-dot" style="background:#06b6d4;box-shadow:0 0 6px rgba(6,182,212,0.6);"></div><div class="stat-content"><div class="stat-label">Indicators</div><div class="stat-value" style="color:#06b6d4;">RSI·EMA·MACD·Vol</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Universe</div><div class="stat-value c-green">S&amp;P 500</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Live</div><div class="stat-value c-orange">GitHub Pages</div></div></div>
-        </div>
-        <div class="last-activity">LAST SCREENED: <span>Mar 30, 2026</span></div>
-        <a href="https://shaiguyllc.github.io/swingscan/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;border-color:rgba(99,102,241,.5);color:#818cf8;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(6,182,212,.15));">OPEN DASHBOARD →</a>
-        <a href="https://github.com/shaiguyllc/swingscan" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+    <div class="mirofish-card">
+      <div class="card-header">
+        <span class="card-icon">🐉</span>
+        <span class="mirofish-name">MiroFish Simulation Engine</span>
+        <span class="mirofish-badge">⚙ NEEDS API KEYS</span>
       </div>
 
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-icon">🧠</span>
-          <span class="card-name">AI Skills Learning</span>
-          <span class="status-badge">● ACTIVE</span>
+      <p class="mirofish-desc">Multi-agent swarm intelligence — feed it data, scenarios, or stories and simulate thousands of futures before they happen. Policy testing · market prediction · creative sandboxing.</p>
+
+      <div class="stats-row">
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-gold"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">Engine</div>
+            <div class="mirofish-stat-value c-gold">Multi-Agent</div>
+          </div>
         </div>
-        <p class="card-desc">326 Claude skills across CLI + web — discovery, install, and ranking</p>
-        <div class="stats-row">
-          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">CLI Skills</div><div class="stat-value c-blue">326</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-purple"></div><div class="stat-content"><div class="stat-label">Web Skills</div><div class="stat-value c-purple">50</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Repos Sourced</div><div class="stat-value c-orange">22</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">S-Tier Skills</div><div class="stat-value c-green">12</div></div></div>
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-crimson"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">LLM Backend</div>
+            <div class="mirofish-stat-value c-crimson">OpenAI / Qwen</div>
+          </div>
         </div>
-        <div class="last-activity">LAST ACTIVITY: <span>Today, 6:42 PM</span></div>
-        <a href="https://shaiguyllc.github.io/ai-skills/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-jade"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">Status</div>
+            <div class="mirofish-stat-value c-jade">Installed ✓</div>
+          </div>
+        </div>
+        <div class="mirofish-stat">
+          <div class="mirofish-dot dot-pearl"></div>
+          <div class="stat-content">
+            <div class="mirofish-stat-label">Location</div>
+            <div class="mirofish-stat-value c-pearl">localhost:3002</div>
+          </div>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-icon">📈</span>
-          <span class="card-name">BTC Predictor</span>
-          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
-        </div>
-        <p class="card-desc">5-minute BTC direction prediction using Kraken + technicals + sentiment</p>
-        <div class="stats-row">
-          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Win Rate</div><div class="stat-value c-green">60%</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Balance</div><div class="stat-value c-blue">$110.05</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Last Trade</div><div class="stat-value c-green">WIN +$9.09</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Trades Run</div><div class="stat-value c-orange">10</div></div></div>
-        </div>
-        <div class="last-activity">LAST ACTIVITY: <span>Today, 8:25 PM</span></div>
-        <a href="https://shaiguyllc.github.io/btc-predictor/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
-        <a href="https://github.com/shaiguyllc/btc-predictor" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+      <div class="mirofish-divider"></div>
+
+      <div class="mirofish-setup">
+        <strong>To activate:</strong> add your keys to <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">MiroFish/.env</code><br>
+        → <strong>LLM_API_KEY</strong> — OpenAI key or Alibaba Qwen<br>
+        → <strong>ZEP_API_KEY</strong> — free at <strong>app.getzep.com</strong><br>
+        Then run: <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">npm run dev</code> inside the MiroFish folder
       </div>
 
-      <div class="project-card">
-        <div class="card-header">
-          <span class="card-icon">🛍️</span>
-          <span class="card-name">POD Automation</span>
-          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
-        </div>
-        <p class="card-desc">Drop a design → auto bg remove, upscale, AI listing, publish to Etsy via Printify</p>
-        <div class="stats-row">
-          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Completed</div><div class="stat-value c-green">2</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">In Pipeline</div><div class="stat-value c-blue">0</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-red"></div><div class="stat-content"><div class="stat-label">Failed</div><div class="stat-value c-red">0</div></div></div>
-          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Next Up</div><div class="stat-value c-orange">Amazon Merch</div></div></div>
-        </div>
-        <div class="last-activity">LAST ACTIVITY: <span>Today, 3:10 AM</span></div>
-        <a href="https://shaiguyllc.github.io/pod-automation/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
-        <a href="https://github.com/shaiguyllc/pod-automation" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="http://localhost:3002" target="_blank" class="btn-mirofish" style="flex:1;">OPEN APP →</a>
+        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="btn-action" style="flex:0 0 auto;border:1px solid rgba(212,175,55,0.2);color:#6a5a3a;border-radius:6px;padding:13px 16px;font-size:10px;text-decoration:none;display:flex;align-items:center;">⌥ GITHUB</a>
       </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="footer">
     Built with <span>Claude Code</span> &middot; All systems nominal
   </footer>
