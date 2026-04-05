@@ -4,699 +4,178 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PROJECTS DASHBOARD — Shai's AI Lab</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:       #0a0a0f;
-    --card:     #0f0f1e;
-    --card2:    #141428;
-    --border:   #1a1a3a;
-    --green:    #00d97e;
-    --blue:     #4d9fff;
-    --purple:   #9b6dff;
-    --orange:   #ffb020;
-    --red:      #ff4d6d;
-    --rosegold: #C98B96;
-    --text:     #c8d8e8;
-    --text2:    #8899aa;
-    --text3:    #556677;
-  }
-
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body {
-    width: 100%;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px);
-    pointer-events: none;
-    z-index: 9999;
-  }
-
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.6) 100%);
-    pointer-events: none;
-    z-index: 9998;
-  }
-
-  .wrapper {
-    position: relative;
-    z-index: 10;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
-
-  /* HEADER */
-  .header {
-    text-align: center;
-    padding: 48px 0 36px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 40px;
-  }
-
-  .header-eyebrow {
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 12px;
-    text-shadow: 0 0 12px rgba(0,217,126,0.5);
-  }
-
-  .header-title {
-    font-size: clamp(22px, 5vw, 42px);
-    font-weight: 800;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: #c8d8e8;
-    text-shadow: 0 0 30px rgba(77,159,255,0.25);
-    margin-bottom: 10px;
-  }
-
-  .header-sub {
-    font-size: 13px;
-    color: var(--text3);
-    letter-spacing: 2px;
-  }
-
-  .status-dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--green);
-    margin-right: 6px;
-    box-shadow: 0 0 8px var(--green);
-    animation: blink 2s ease-in-out infinite;
-    vertical-align: middle;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  /* SECTION HEADING */
-  .section-heading {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--text3);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .section-heading::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* GRIDS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 48px;
-  }
-
-  .studio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 48px;
-  }
-
-  .games-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 48px;
-  }
-
-  .videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-    gap: 20px;
-    margin-bottom: 48px;
-  }
-  .video-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .video-card::before {
-    content: '';
-    display: block;
-    height: 2px;
-    border-radius: 2px 2px 0 0;
-    background: linear-gradient(90deg, var(--rosegold), var(--purple), var(--blue));
-    margin: -16px -16px 4px -16px;
-    border-radius: 12px 12px 0 0;
-  }
-  .video-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .video-badge {
-    background: var(--green);
-    color: #000;
-    font-size: 9px;
-    font-weight: 800;
-    padding: 2px 7px;
-    border-radius: 10px;
-    letter-spacing: 1px;
-  }
-  .video-meta {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  /* PROJECT CARD */
-  .project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s, box-shadow 0.25s;
-  }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--green), var(--blue), var(--purple));
-  }
-
-  .project-card:hover {
-    border-color: rgba(77,159,255,0.35);
-    box-shadow: 0 0 24px rgba(77,159,255,0.07);
-  }
-
-  .studio-card::before {
-    background: linear-gradient(90deg, var(--rosegold), #e8b4be, var(--rosegold));
-  }
-
-  .studio-card:hover {
-    border-color: rgba(201,139,150,0.4);
-    box-shadow: 0 0 24px rgba(201,139,150,0.08);
-  }
-
-  .mueller-card::before {
-    background: linear-gradient(90deg, #2a6496, #f5b731, #2a6496);
-  }
-  .mueller-card:hover {
-    border-color: rgba(42,100,150,0.45);
-    box-shadow: 0 0 24px rgba(42,100,150,0.1);
-  }
-  .btn-mueller {
-    display: block; text-align: center; text-decoration: none;
-    background: #2a6496; color: #fff;
-    border: 1px solid rgba(42,100,150,0.5);
-    border-radius: 6px; padding: 13px 20px;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    transition: background 0.2s;
-  }
-  .btn-mueller:hover { background: #1a5080; }
-  .dot-steel { background: #4a90c4; }
-  .c-steel { color: #4a90c4; }
-  .c-gold2 { color: #f5b731; }
-
-  /* CHINESE LUXURY */
-  --jade:    #1a6b4a;
-  --crimson: #8B0000;
-  --gold2:   #D4AF37;
-
-  .mirofish-section {
-    margin-bottom: 48px;
-  }
-
-  .mirofish-heading {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #D4AF37;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-shadow: 0 0 12px rgba(212,175,55,0.4);
-  }
-
-  .mirofish-heading::before { content: '龍'; font-size: 16px; opacity: 0.7; }
-  .mirofish-heading::after  {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(212,175,55,0.5), transparent);
-  }
-
-  .mirofish-card {
-    background: linear-gradient(145deg, #0d0a06, #120e08, #0a0d0a);
-    border: 1px solid rgba(212,175,55,0.3);
-    border-radius: 12px;
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  .mirofish-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #8B0000, #D4AF37, #8B0000, #D4AF37, #8B0000);
-  }
-
-  .mirofish-card::after {
-    content: '龍';
-    position: absolute;
-    right: 20px;
-    bottom: 16px;
-    font-size: 72px;
-    opacity: 0.04;
-    color: #D4AF37;
-    pointer-events: none;
-    line-height: 1;
-  }
-
-  .mirofish-card:hover {
-    border-color: rgba(212,175,55,0.55);
-    box-shadow: 0 0 32px rgba(212,175,55,0.1), 0 0 8px rgba(139,0,0,0.15);
-  }
-
-  .mirofish-name {
-    font-size: clamp(14px, 2vw, 17px);
-    font-weight: 700;
-    color: #D4AF37;
-    flex: 1;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(212,175,55,0.4);
-  }
-
-  .mirofish-badge {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding: 3px 8px;
-    border-radius: 20px;
-    background: rgba(212,175,55,0.1);
-    border: 1px solid rgba(212,175,55,0.35);
-    color: #D4AF37;
-    white-space: nowrap;
-  }
-
-  .mirofish-desc {
-    font-size: 12px;
-    color: #9a8a6a;
-    line-height: 1.7;
-  }
-
-  .mirofish-stat {
-    background: rgba(212,175,55,0.05);
-    border: 1px solid rgba(212,175,55,0.15);
-    border-radius: 6px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .mirofish-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-  .dot-gold   { background: #D4AF37; box-shadow: 0 0 6px rgba(212,175,55,0.6); }
-  .dot-crimson { background: #c0392b; box-shadow: 0 0 6px rgba(192,57,43,0.6); }
-  .dot-jade   { background: #27ae60; box-shadow: 0 0 6px rgba(39,174,96,0.6); }
-  .dot-pearl  { background: #bdc3c7; box-shadow: 0 0 6px rgba(189,195,199,0.4); }
-
-  .mirofish-stat-label { font-size:9px; color:#6a5a3a; letter-spacing:1px; text-transform:uppercase; }
-  .mirofish-stat-value { font-size:11px; font-weight:600; }
-  .c-gold    { color: #D4AF37; }
-  .c-crimson { color: #e74c3c; }
-  .c-jade    { color: #2ecc71; }
-  .c-pearl   { color: #bdc3c7; }
-
-  .mirofish-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent);
-  }
-
-  .mirofish-setup {
-    background: rgba(139,0,0,0.08);
-    border: 1px solid rgba(139,0,0,0.25);
-    border-radius: 8px;
-    padding: 12px 14px;
-    font-size:11px;
-    color: #9a6060;
-    line-height: 1.7;
-    letter-spacing: 0.3px;
-  }
-
-  .mirofish-setup strong { color: #D4AF37; }
-
-  .btn-mirofish {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 13px 24px;
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 7px;
-    background: linear-gradient(135deg, rgba(139,0,0,0.25), rgba(212,175,55,0.15));
-    border: 1px solid rgba(212,175,55,0.4);
-    color: #D4AF37;
-    cursor: pointer;
-    transition: all 0.25s;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .btn-mirofish:hover {
-    background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(212,175,55,0.25));
-    box-shadow: 0 0 20px rgba(212,175,55,0.2);
-    transform: translateY(-1px);
-  }
-
-  .game-card::before {
-    background: linear-gradient(90deg, var(--purple), var(--orange), var(--red), var(--purple));
-  }
-
-  .game-card:hover {
-    border-color: rgba(155,109,255,0.4);
-    box-shadow: 0 0 24px rgba(155,109,255,0.1);
-  }
-
-  .btn-arcade {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 13px 24px;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 7px;
-    background: linear-gradient(135deg, rgba(155,109,255,0.18), rgba(255,176,32,0.12));
-    border: 1px solid rgba(155,109,255,0.45);
-    color: var(--purple);
-    transition: all 0.2s;
-    margin-top: auto;
-  }
-
-  .btn-arcade:hover {
-    background: linear-gradient(135deg, rgba(155,109,255,0.3), rgba(255,176,32,0.2));
-    box-shadow: 0 0 18px rgba(155,109,255,0.25);
-    transform: translateY(-1px);
-  }
-
-  /* CARD HEADER */
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .card-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-    line-height: 1;
-  }
-
-  .card-name {
-    font-size: clamp(14px, 2vw, 17px);
-    font-weight: 700;
-    color: var(--text);
-    flex: 1;
-    letter-spacing: 0.5px;
-  }
-
-  .status-badge {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 20px;
-    background: rgba(0,217,126,0.12);
-    border: 1px solid rgba(0,217,126,0.3);
-    color: var(--green);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* CARD DESCRIPTION */
-  .card-desc {
-    font-size: 12px;
-    color: var(--text2);
-    line-height: 1.7;
-  }
-
-  /* STATS ROW */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .stat-item {
-    background: rgba(10,10,20,0.6);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .stat-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .stat-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 0;
-  }
-
-  .stat-label {
-    font-size: 9px;
-    color: var(--text3);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .stat-value {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* LAST ACTIVITY */
-  .last-activity {
-    font-size: 10px;
-    color: var(--text3);
-    letter-spacing: 1px;
-    padding-top: 4px;
-    border-top: 1px solid var(--border);
-  }
-
-  .last-activity span { color: var(--text2); font-weight: 500; }
-
-  /* BUTTONS */
-  .card-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: auto;
-  }
-
-  .btn-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 18px;
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, rgba(0,217,126,0.15), rgba(77,159,255,0.15));
-    border: 1px solid rgba(0,217,126,0.4);
-    color: var(--green);
-  }
-
-  .btn-primary:hover {
-    background: linear-gradient(135deg, rgba(0,217,126,0.25), rgba(77,159,255,0.25));
-    box-shadow: 0 0 16px rgba(0,217,126,0.2);
-    transform: translateY(-1px);
-  }
-
-  .btn-rosegold {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 13px 24px;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 7px;
-    background: linear-gradient(135deg, rgba(201,139,150,0.18), rgba(232,180,190,0.18));
-    border: 1px solid rgba(201,139,150,0.45);
-    color: var(--rosegold);
-    transition: all 0.2s;
-    margin-top: auto;
-  }
-
-  .btn-rosegold:hover {
-    background: linear-gradient(135deg, rgba(201,139,150,0.3), rgba(232,180,190,0.3));
-    box-shadow: 0 0 18px rgba(201,139,150,0.2);
-    transform: translateY(-1px);
-  }
-
-  /* VIDEO PLACEHOLDER */
-  .video-placeholder {
-    background: var(--card);
-    border: 1px dashed var(--border);
-    border-radius: 12px;
-    padding: 36px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
-    min-height: 160px;
-  }
-
-  .video-placeholder-icon { font-size: 32px; opacity: 0.4; }
-
-  .video-placeholder-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text3);
-  }
-
-  .videos-note {
-    font-size: 11px;
-    color: var(--text3);
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .videos-note::before { content: '//'; color: var(--border); }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--text3);
-    letter-spacing: 2px;
-  }
-
-  .footer span { color: var(--green); }
-
-  /* COLOR UTILITIES */
-  .c-green  { color: var(--green); }
-  .c-blue   { color: var(--blue); }
-  .c-purple { color: var(--purple); }
-  .c-orange { color: var(--orange); }
-  .c-red    { color: var(--red); }
-  .c-rose   { color: var(--rosegold); }
-
-  .dot-green  { background: var(--green); }
-  .dot-blue   { background: var(--blue); }
-  .dot-purple { background: var(--purple); }
-  .dot-orange { background: var(--orange); }
-  .dot-red    { background: var(--red); }
-  .dot-rose   { background: var(--rosegold); }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
-    .wrapper { padding: 0 14px 48px; }
-    .header { padding: 32px 0 24px; margin-bottom: 28px; }
-    .projects-grid,
-    .studio-grid,
-    .games-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
-    .videos-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 36px; }
-    .project-card { padding: 18px 16px; }
-    .card-icon { font-size: 22px; }
-    .card-name { font-size: 14px; }
-    .btn-action { width: 100%; justify-content: center; }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-  }
+:root {
+  --bg: #eef2eb;
+  --card: #ffffff;
+  --card2: #f5f3ed;
+  --border: #a8c5a0;
+  --green: #4a7c59;
+  --blue: #4a7c59;
+  --purple: #8a5a3a;
+  --orange: #f9a620;
+  --red: #b7472a;
+  --rosegold: #d4845a;
+  --text: #2b3a2c;
+  --text2: #5a6b5b;
+  --text3: #8a9b8a;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Sans 3', sans-serif;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(74,124,89,0.03) 2px, rgba(74,124,89,0.03) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(168,197,160,0.18) 100%);
+  pointer-events: none;
+  z-index: 9998;
+}
+.wrapper { position: relative; z-index: 10; max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+/* HEADER */
+.header { text-align: center; padding: 48px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.header-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; text-shadow: 0 0 12px rgba(74,124,89,0.3); }
+.header-title { font-family: 'Lora', serif; font-size: clamp(22px, 5vw, 42px); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #2b3a2c; text-shadow: none; margin-bottom: 10px; }
+.header-sub { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text3); letter-spacing: 2px; }
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-right: 6px; box-shadow: 0 0 8px rgba(74,124,89,0.6); animation: blink 2s ease-in-out infinite; vertical-align: middle; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* SECTION HEADING */
+.section-heading { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #b7472a; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.section-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* GRIDS */
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 48px; }
+.studio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 48px; }
+.games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 48px; }
+
+/* PROJECT CARD */
+.project-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden; transition: border-color 0.25s, box-shadow 0.25s; box-shadow: 0 2px 12px rgba(74,124,89,0.06); }
+.project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), #f9a620, #b7472a); }
+.project-card:hover { border-color: rgba(74,124,89,0.4); box-shadow: 0 4px 24px rgba(74,124,89,0.12); }
+.studio-card::before { background: linear-gradient(90deg, #d4845a, #f9a620, #d4845a); }
+.studio-card:hover { border-color: rgba(212,132,90,0.4); box-shadow: 0 4px 24px rgba(212,132,90,0.1); }
+.mueller-card::before { background: linear-gradient(90deg, #4a7c59, #f9a620, #4a7c59); }
+.mueller-card:hover { border-color: rgba(74,124,89,0.45); box-shadow: 0 4px 24px rgba(74,124,89,0.1); }
+.btn-mueller { display: block; text-align: center; text-decoration: none; background: #4a7c59; color: #fff; border: 1px solid rgba(74,124,89,0.5); border-radius: 6px; padding: 13px 20px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; transition: background 0.2s; }
+.btn-mueller:hover { background: #3a6348; }
+.dot-steel { background: #4a90c4; }
+.c-steel { color: #4a90c4; }
+.c-gold2 { color: #c8860a; }
+
+/* MIROFISH */
+.mirofish-section { margin-bottom: 48px; }
+.mirofish-heading { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #f9a620; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; text-shadow: 0 0 12px rgba(249,166,32,0.3); }
+.mirofish-heading::before { content: '龍'; font-size: 16px; opacity: 0.7; }
+.mirofish-heading::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(74,124,89,0.5), transparent); }
+.mirofish-card { background: linear-gradient(145deg, #192a1c, #1e3020, #152018); border: 1px solid rgba(74,124,89,0.4); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 18px; position: relative; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
+.mirofish-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #4a7c59, #f9a620, #4a7c59, #f9a620, #4a7c59); }
+.mirofish-card::after { content: '龍'; position: absolute; right: 20px; bottom: 16px; font-size: 72px; opacity: 0.05; color: #f9a620; pointer-events: none; line-height: 1; }
+.mirofish-card:hover { border-color: rgba(74,124,89,0.65); box-shadow: 0 0 32px rgba(74,124,89,0.15), 0 0 8px rgba(249,166,32,0.1); }
+.mirofish-name { font-family: 'Lora', serif; font-size: clamp(14px, 2vw, 17px); font-weight: 700; color: #f9a620; flex: 1; letter-spacing: 1px; text-shadow: 0 0 10px rgba(249,166,32,0.3); }
+.mirofish-badge { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 3px 8px; border-radius: 20px; background: rgba(249,166,32,0.1); border: 1px solid rgba(249,166,32,0.35); color: #f9a620; white-space: nowrap; }
+.mirofish-desc { font-size: 13px; color: #8ab08a; line-height: 1.7; }
+.mirofish-stat { background: rgba(74,124,89,0.08); border: 1px solid rgba(74,124,89,0.2); border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px; }
+.mirofish-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.dot-gold { background: #f9a620; box-shadow: 0 0 6px rgba(249,166,32,0.6); }
+.dot-crimson { background: #c0392b; box-shadow: 0 0 6px rgba(192,57,43,0.6); }
+.dot-jade { background: #27ae60; box-shadow: 0 0 6px rgba(39,174,96,0.6); }
+.dot-pearl { background: #bdc3c7; box-shadow: 0 0 6px rgba(189,195,199,0.4); }
+.mirofish-stat-label { font-family: 'JetBrains Mono', monospace; font-size:9px; color:#5a7a5a; letter-spacing:1px; text-transform:uppercase; }
+.mirofish-stat-value { font-family: 'JetBrains Mono', monospace; font-size:11px; font-weight:600; }
+.c-gold { color: #f9a620; }
+.c-crimson { color: #e74c3c; }
+.c-jade { color: #2ecc71; }
+.c-pearl { color: #bdc3c7; }
+.mirofish-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(74,124,89,0.35), transparent); }
+.mirofish-setup { background: rgba(74,124,89,0.08); border: 1px solid rgba(74,124,89,0.25); border-radius: 8px; padding: 12px 14px; font-family: 'JetBrains Mono', monospace; font-size:11px; color: #7a9a7a; line-height: 1.7; letter-spacing: 0.3px; }
+.mirofish-setup strong { color: #f9a620; }
+.btn-mirofish { display: block; width: 100%; text-align: center; padding: 13px 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; border-radius: 7px; background: linear-gradient(135deg, rgba(74,124,89,0.25), rgba(249,166,32,0.15)); border: 1px solid rgba(74,124,89,0.45); color: #f9a620; cursor: pointer; transition: all 0.25s; }
+.btn-mirofish:hover { background: linear-gradient(135deg, rgba(74,124,89,0.4), rgba(249,166,32,0.25)); box-shadow: 0 0 20px rgba(74,124,89,0.25); transform: translateY(-1px); }
+
+/* GAME CARD */
+.game-card::before { background: linear-gradient(90deg, #b7472a, #f9a620, #4a7c59, #b7472a); }
+.game-card:hover { border-color: rgba(183,71,42,0.35); box-shadow: 0 4px 24px rgba(183,71,42,0.1); }
+.btn-arcade { display: block; width: 100%; text-align: center; padding: 13px 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 7px; background: linear-gradient(135deg, rgba(183,71,42,0.12), rgba(249,166,32,0.1)); border: 1px solid rgba(183,71,42,0.45); color: #b7472a; transition: all 0.2s; margin-top: auto; }
+.btn-arcade:hover { background: linear-gradient(135deg, rgba(183,71,42,0.22), rgba(249,166,32,0.18)); box-shadow: 0 0 18px rgba(183,71,42,0.2); transform: translateY(-1px); }
+
+/* CARD HEADER */
+.card-header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.card-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+.card-name { font-family: 'Lora', serif; font-size: clamp(14px, 2vw, 17px); font-weight: 700; color: var(--text); flex: 1; letter-spacing: 0.3px; }
+.status-badge { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; background: rgba(74,124,89,0.12); border: 1px solid rgba(74,124,89,0.3); color: var(--green); white-space: nowrap; flex-shrink: 0; }
+
+/* CARD DESCRIPTION */
+.card-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+/* STATS ROW */
+.stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.stat-item { background: #dcebd8; border: 1px solid #a8c5a0; border-radius: 6px; padding: 8px 10px; display: flex; align-items: center; gap: 6px; }
+.stat-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.stat-content { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.stat-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat-value { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* LAST ACTIVITY */
+.last-activity { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text3); letter-spacing: 1px; padding-top: 4px; border-top: 1px solid var(--border); }
+.last-activity span { color: var(--text2); font-weight: 500; }
+
+/* BUTTONS */
+.card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+.btn-action { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 6px; cursor: pointer; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.btn-primary { background: linear-gradient(135deg, rgba(74,124,89,0.12), rgba(249,166,32,0.08)); border: 1px solid rgba(74,124,89,0.4); color: var(--green); }
+.btn-primary:hover { background: linear-gradient(135deg, rgba(74,124,89,0.22), rgba(249,166,32,0.15)); box-shadow: 0 0 16px rgba(74,124,89,0.2); transform: translateY(-1px); }
+.btn-rosegold { display: block; width: 100%; text-align: center; padding: 13px 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 7px; background: linear-gradient(135deg, rgba(212,132,90,0.12), rgba(249,166,32,0.08)); border: 1px solid rgba(212,132,90,0.45); color: var(--rosegold); transition: all 0.2s; margin-top: auto; }
+.btn-rosegold:hover { background: linear-gradient(135deg, rgba(212,132,90,0.22), rgba(249,166,32,0.15)); box-shadow: 0 0 18px rgba(212,132,90,0.2); transform: translateY(-1px); }
+
+/* COLOR UTILITIES */
+.c-green { color: var(--green); }
+.c-blue  { color: var(--green); }
+.c-purple { color: var(--purple); }
+.c-orange { color: var(--orange); }
+.c-red   { color: var(--red); }
+.c-rose  { color: var(--rosegold); }
+.dot-green  { background: var(--green); box-shadow: 0 0 5px rgba(74,124,89,0.5); }
+.dot-blue   { background: var(--green); box-shadow: 0 0 5px rgba(74,124,89,0.5); }
+.dot-purple { background: var(--purple); box-shadow: 0 0 5px rgba(138,90,58,0.5); }
+.dot-orange { background: var(--orange); box-shadow: 0 0 5px rgba(249,166,32,0.5); }
+.dot-red    { background: var(--red); box-shadow: 0 0 5px rgba(183,71,42,0.5); }
+.dot-rose   { background: var(--rosegold); box-shadow: 0 0 5px rgba(212,132,90,0.5); }
+
+/* FOOTER */
+.footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 2px; }
+.footer span { color: var(--green); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .wrapper { padding: 0 14px 48px; }
+  .header { padding: 32px 0 24px; margin-bottom: 28px; }
+  .projects-grid, .studio-grid, .games-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+  .project-card { padding: 18px 16px; }
+  .card-icon { font-size: 22px; }
+  .card-name { font-size: 14px; }
+  .btn-action { width: 100%; justify-content: center; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
-
 <div class="wrapper">
 
   <!-- HEADER -->
@@ -706,11 +185,10 @@
     <p class="header-sub">All systems running</p>
   </header>
 
-  <!-- STUDIO 313 (moved to top) -->
+  <!-- STUDIO 313 -->
   <section>
     <h2 class="section-heading">Studio 313 Redesign</h2>
     <div class="studio-grid">
-
       <div class="project-card studio-card">
         <div class="card-header">
           <span class="card-icon">💇‍♀️</span>
@@ -724,9 +202,8 @@
           <div class="stat-item"><div class="stat-dot dot-rose"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-rose">Rose Gold</div></div></div>
         </div>
         <a href="https://shaiguyllc.github.io/studio313-redesign/" target="_blank" class="btn-rosegold">VIEW REDESIGN →</a>
-        <a href="https://github.com/shaiguyllc/studio313-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/studio313-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
-
       <div class="project-card studio-card">
         <div class="card-header">
           <span class="card-icon">🔀</span>
@@ -740,9 +217,8 @@
           <div class="stat-item"><div class="stat-dot dot-rose"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-rose">Matched</div></div></div>
         </div>
         <a href="https://shaiguyllc.github.io/studio313-comparison/" target="_blank" class="btn-rosegold">VIEW COMPARISON →</a>
-        <a href="https://github.com/shaiguyllc/studio313-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/studio313-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
-
     </div>
   </section>
 
@@ -750,7 +226,6 @@
   <section>
     <h2 class="section-heading">Mueller Mechanical Redesign</h2>
     <div class="studio-grid">
-
       <div class="project-card mueller-card">
         <div class="card-header">
           <span class="card-icon">🔧</span>
@@ -761,12 +236,11 @@
           <div class="stat-item"><div class="stat-dot dot-steel"></div><div class="stat-content"><div class="stat-label">Sections</div><div class="stat-value c-steel">10</div></div></div>
           <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Photos</div><div class="stat-value c-green">11</div></div></div>
           <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Mobile</div><div class="stat-value c-green">✓</div></div></div>
-          <div class="stat-item"><div class="stat-dot" style="background:#f5b731;"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-gold2">Steel + Gold</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#c8860a;box-shadow:0 0 5px rgba(200,134,10,0.5);"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-gold2">Steel + Gold</div></div></div>
         </div>
         <a href="https://shaiguyllc.github.io/mueller-redesign/" target="_blank" class="btn-mueller">VIEW REDESIGN →</a>
-        <a href="https://github.com/shaiguyllc/mueller-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/mueller-redesign" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
-
       <div class="project-card mueller-card">
         <div class="card-header">
           <span class="card-icon">⚡</span>
@@ -777,12 +251,11 @@
           <div class="stat-item"><div class="stat-dot dot-steel"></div><div class="stat-content"><div class="stat-label">Slides</div><div class="stat-value c-steel">9</div></div></div>
           <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Features</div><div class="stat-value c-blue">12+</div></div></div>
           <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Swipe</div><div class="stat-value c-green">✓ Mobile</div></div></div>
-          <div class="stat-item"><div class="stat-dot" style="background:#f5b731;"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-gold2">Philly Bold</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#c8860a;box-shadow:0 0 5px rgba(200,134,10,0.5);"></div><div class="stat-content"><div class="stat-label">Theme</div><div class="stat-value c-gold2">Philly Bold</div></div></div>
         </div>
         <a href="https://shaiguyllc.github.io/mueller-comparison/" target="_blank" class="btn-mueller">VIEW SHOWCASE →</a>
-        <a href="https://github.com/shaiguyllc/mueller-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/mueller-comparison" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
-
     </div>
   </section>
 
@@ -790,23 +263,22 @@
   <section>
     <h2 class="section-heading">Active Projects</h2>
     <div class="projects-grid">
-
-      <div class="project-card" style="--card-accent:#6366f1;">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6366f1,#06b6d4,#6366f1);border-radius:12px 12px 0 0;"></div>
+      <div class="project-card" style="--card-accent:#4a7c59;">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#4a7c59,#f9a620,#4a7c59);border-radius:12px 12px 0 0;"></div>
         <div class="card-header">
           <span class="card-icon">📊</span>
           <span class="card-name">SwingScan — S&amp;P 500 Screener</span>
-          <span class="status-badge" style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.4);color:#818cf8;">● ACTIVE</span>
+          <span class="status-badge" style="background:rgba(74,124,89,.15);border-color:rgba(74,124,89,.4);color:#4a7c59;">● ACTIVE</span>
         </div>
         <p class="card-desc">Daily swing trade scanner — ranks top 20 S&amp;P 500 setups by RSI, EMA, MACD &amp; volume with interactive charts and watchlist</p>
         <div class="stats-row">
-          <div class="stat-item"><div class="stat-dot" style="background:#6366f1;box-shadow:0 0 6px rgba(99,102,241,0.6);"></div><div class="stat-content"><div class="stat-label">Stocks Ranked</div><div class="stat-value" style="color:#818cf8;">20</div></div></div>
-          <div class="stat-item"><div class="stat-dot" style="background:#06b6d4;box-shadow:0 0 6px rgba(6,182,212,0.6);"></div><div class="stat-content"><div class="stat-label">Indicators</div><div class="stat-value" style="color:#06b6d4;">RSI·EMA·MACD·Vol</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#4a7c59;box-shadow:0 0 6px rgba(74,124,89,0.6);"></div><div class="stat-content"><div class="stat-label">Stocks Ranked</div><div class="stat-value" style="color:#4a7c59;">20</div></div></div>
+          <div class="stat-item"><div class="stat-dot" style="background:#b7472a;box-shadow:0 0 6px rgba(183,71,42,0.5);"></div><div class="stat-content"><div class="stat-label">Indicators</div><div class="stat-value" style="color:#b7472a;">RSI·EMA·MACD·Vol</div></div></div>
           <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Universe</div><div class="stat-value c-green">S&amp;P 500</div></div></div>
           <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Server</div><div class="stat-value c-orange">localhost:4600</div></div></div>
         </div>
         <div class="last-activity">LAST SCREENED: <span>Mar 30, 2026</span></div>
-        <a href="https://shaiguyllc.github.io/swingscan/design-preview.html" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;border-color:rgba(99,102,241,.5);color:#818cf8;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(6,182,212,.15));">OPEN DASHBOARD →</a>
+        <a href="https://shaiguyllc.github.io/swingscan/design-preview.html" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN DASHBOARD →</a>
         <a href="https://github.com/shaiguyllc/swingscan" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
@@ -831,7 +303,7 @@
         <div class="card-header">
           <span class="card-icon">📈</span>
           <span class="card-name">BTC Predictor</span>
-          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
+          <span class="status-badge" style="background:rgba(138,155,138,.12);border-color:rgba(138,155,138,.3);color:var(--text3);">● PAUSED</span>
         </div>
         <p class="card-desc">5-minute BTC direction prediction using Kraken + technicals + sentiment</p>
         <div class="stats-row">
@@ -842,14 +314,14 @@
         </div>
         <div class="last-activity">LAST ACTIVITY: <span>Today, 8:25 PM</span></div>
         <a href="https://shaiguyllc.github.io/btc-predictor/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
-        <a href="https://github.com/shaiguyllc/btc-predictor" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/btc-predictor" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
       <div class="project-card">
         <div class="card-header">
           <span class="card-icon">🛍️</span>
           <span class="card-name">POD Automation</span>
-          <span class="status-badge" style="background:rgba(85,102,119,.12);border-color:rgba(85,102,119,.3);color:var(--text3);">● PAUSED</span>
+          <span class="status-badge" style="background:rgba(138,155,138,.12);border-color:rgba(138,155,138,.3);color:var(--text3);">● PAUSED</span>
         </div>
         <p class="card-desc">Drop a design → auto bg remove, upscale, AI listing, publish to Etsy via Printify</p>
         <div class="stats-row">
@@ -860,20 +332,15 @@
         </div>
         <div class="last-activity">LAST ACTIVITY: <span>Today, 3:10 AM</span></div>
         <a href="https://shaiguyllc.github.io/pod-automation/" target="_blank" class="btn-action btn-primary" style="margin-top:16px;display:block;text-align:center;">OPEN →</a>
-        <a href="https://github.com/shaiguyllc/pod-automation" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/pod-automation" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
-
     </div>
   </section>
 
-
-
-    <!-- GAMES -->
+  <!-- GAMES -->
   <section>
     <h2 class="section-heading">Games</h2>
     <div class="games-grid">
-
-      <!-- Game 1: Claude Code Quest -->
       <div class="project-card game-card">
         <div class="card-header">
           <span class="card-icon">🎮</span>
@@ -882,151 +349,70 @@
         </div>
         <p class="card-desc">Interactive 7-level terminal game to master Claude Code — slash commands, CLAUDE.md, MCP, agents and more</p>
         <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-dot dot-purple"></div>
-            <div class="stat-content">
-              <div class="stat-label">Levels</div>
-              <div class="stat-value c-purple">7</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-blue"></div>
-            <div class="stat-content">
-              <div class="stat-label">Challenges</div>
-              <div class="stat-value c-blue">21</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">XP System</div>
-              <div class="stat-value c-green">Active</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-orange"></div>
-            <div class="stat-content">
-              <div class="stat-label">Play On</div>
-              <div class="stat-value c-orange">Phone+Desktop</div>
-            </div>
-          </div>
+          <div class="stat-item"><div class="stat-dot dot-purple"></div><div class="stat-content"><div class="stat-label">Levels</div><div class="stat-value c-purple">7</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-blue"></div><div class="stat-content"><div class="stat-label">Challenges</div><div class="stat-value c-blue">21</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">XP System</div><div class="stat-value c-green">Active</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Play On</div><div class="stat-value c-orange">Phone+Desktop</div></div></div>
         </div>
         <div class="last-activity">LAST ACTIVITY: <span>Today</span></div>
         <a href="https://shaiguyllc.github.io/claude-code-quest/" target="_blank" class="btn-arcade" style="margin-top:16px;">PLAY GAME →</a>
-        <a href="https://github.com/shaiguyllc/claude-code-quest" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #1a1a3a;color:#556677;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
+        <a href="https://github.com/shaiguyllc/claude-code-quest" target="_blank" class="btn-action" style="margin-top:8px;display:block;text-align:center;font-size:10px;border:1px solid #a8c5a0;color:#8a9b8a;border-radius:6px;padding:7px;">⌥ VIEW ON GITHUB</a>
       </div>
 
-      <!-- Game 2: Neon Invaders -->
       <div class="project-card game-card">
         <div class="card-header">
           <span class="card-icon">👾</span>
           <span class="card-name">Neon Invaders</span>
-          <span class="status-badge" style="background:rgba(255,176,32,.12);border-color:rgba(255,176,32,.3);color:var(--orange);">● NEW</span>
+          <span class="status-badge" style="background:rgba(249,166,32,.12);border-color:rgba(249,166,32,.3);color:var(--orange);">● NEW</span>
         </div>
         <p class="card-desc">Neon arcade shooter — blast waves of glowing enemies, defend your shields, and take down the boss</p>
         <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-dot dot-purple"></div>
-            <div class="stat-content">
-              <div class="stat-label">Style</div>
-              <div class="stat-value c-purple">Arcade</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-orange"></div>
-            <div class="stat-content">
-              <div class="stat-label">Enemies</div>
-              <div class="stat-value c-orange">3 Types</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-red"></div>
-            <div class="stat-content">
-              <div class="stat-label">Boss</div>
-              <div class="stat-value c-red">Each Wave</div>
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-dot dot-green"></div>
-            <div class="stat-content">
-              <div class="stat-label">Play On</div>
-              <div class="stat-value c-green">Phone+Desktop</div>
-            </div>
-          </div>
+          <div class="stat-item"><div class="stat-dot dot-purple"></div><div class="stat-content"><div class="stat-label">Style</div><div class="stat-value c-purple">Arcade</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-orange"></div><div class="stat-content"><div class="stat-label">Enemies</div><div class="stat-value c-orange">3 Types</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-red"></div><div class="stat-content"><div class="stat-label">Boss</div><div class="stat-value c-red">Each Wave</div></div></div>
+          <div class="stat-item"><div class="stat-dot dot-green"></div><div class="stat-content"><div class="stat-label">Play On</div><div class="stat-value c-green">Phone+Desktop</div></div></div>
         </div>
         <div class="last-activity">LAST ACTIVITY: <span>Today</span></div>
         <a href="neon-invaders.html" class="btn-arcade" style="margin-top:16px;">PLAY GAME →</a>
       </div>
-
     </div>
   </section>
 
-    <!-- MIROFISH -->
+  <!-- MIROFISH -->
   <section class="mirofish-section">
     <h2 class="mirofish-heading">MiroFish — 群体智能引擎</h2>
-
     <div class="mirofish-card">
       <div class="card-header">
         <span class="card-icon">🐉</span>
         <span class="mirofish-name">MiroFish Simulation Engine</span>
         <span class="mirofish-badge">⚙ NEEDS API KEYS</span>
       </div>
-
       <p class="mirofish-desc">Multi-agent swarm intelligence — feed it data, scenarios, or stories and simulate thousands of futures before they happen. Policy testing · market prediction · creative sandboxing.</p>
-
       <div class="stats-row">
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-gold"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">Engine</div>
-            <div class="mirofish-stat-value c-gold">Multi-Agent</div>
-          </div>
-        </div>
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-crimson"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">LLM Backend</div>
-            <div class="mirofish-stat-value c-crimson">OpenAI / Qwen</div>
-          </div>
-        </div>
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-jade"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">Status</div>
-            <div class="mirofish-stat-value c-jade">Installed ✓</div>
-          </div>
-        </div>
-        <div class="mirofish-stat">
-          <div class="mirofish-dot dot-pearl"></div>
-          <div class="stat-content">
-            <div class="mirofish-stat-label">Location</div>
-            <div class="mirofish-stat-value c-pearl">localhost:3002</div>
-          </div>
-        </div>
+        <div class="mirofish-stat"><div class="mirofish-dot dot-gold"></div><div class="stat-content"><div class="mirofish-stat-label">Engine</div><div class="mirofish-stat-value c-gold">Multi-Agent</div></div></div>
+        <div class="mirofish-stat"><div class="mirofish-dot dot-crimson"></div><div class="stat-content"><div class="mirofish-stat-label">LLM Backend</div><div class="mirofish-stat-value c-crimson">OpenAI / Qwen</div></div></div>
+        <div class="mirofish-stat"><div class="mirofish-dot dot-jade"></div><div class="stat-content"><div class="mirofish-stat-label">Status</div><div class="mirofish-stat-value c-jade">Installed ✓</div></div></div>
+        <div class="mirofish-stat"><div class="mirofish-dot dot-pearl"></div><div class="stat-content"><div class="mirofish-stat-label">Location</div><div class="mirofish-stat-value c-pearl">localhost:3002</div></div></div>
       </div>
-
       <div class="mirofish-divider"></div>
-
       <div class="mirofish-setup">
-        <strong>To activate:</strong> add your keys to <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">MiroFish/.env</code><br>
+        <strong>To activate:</strong> add your keys to <code style="color:#f9a620;background:rgba(249,166,32,0.08);padding:1px 5px;border-radius:3px;">MiroFish/.env</code><br>
         → <strong>LLM_API_KEY</strong> — OpenAI key or Alibaba Qwen<br>
         → <strong>ZEP_API_KEY</strong> — free at <strong>app.getzep.com</strong><br>
-        Then run: <code style="color:#D4AF37;background:rgba(212,175,55,0.08);padding:1px 5px;border-radius:3px;">npm run dev</code> inside the MiroFish folder
+        Then run: <code style="color:#f9a620;background:rgba(249,166,32,0.08);padding:1px 5px;border-radius:3px;">npm run dev</code> inside the MiroFish folder
       </div>
-
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a href="http://localhost:3002" target="_blank" class="btn-mirofish" style="flex:1;">OPEN APP →</a>
-        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="btn-action" style="flex:0 0 auto;border:1px solid rgba(212,175,55,0.2);color:#6a5a3a;border-radius:6px;padding:13px 16px;font-size:10px;text-decoration:none;display:flex;align-items:center;">⌥ GITHUB</a>
+        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="btn-action" style="flex:0 0 auto;border:1px solid rgba(74,124,89,0.3);color:#5a7a5a;border-radius:6px;padding:13px 16px;font-size:10px;text-decoration:none;display:flex;align-items:center;">⌥ GITHUB</a>
       </div>
     </div>
   </section>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     Built with <span>Claude Code</span> &middot; All systems nominal
   </footer>
 
 </div>
-
 </body>
 </html>
